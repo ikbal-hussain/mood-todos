@@ -1,0 +1,118 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f6fa;
+  transition: background 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+.container {
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.mood-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.2rem;
+}
+
+.mood-btn {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+  border-radius: 50%;
+  padding: 0.5em 0.5em;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.mood-btn:hover {
+  background: #f1f2f6;
+  transform: scale(1.12);
+}
+.mood-btn:active {
+  transform: scale(1.25);
+}
+.mood-btn.selected {
+  box-shadow: 0 0 0 4px #b2bec3;
+  background: #f1f2f6;
+}
+
+/* Mood backgrounds */
+body.mood-happy {
+  background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+}
+body.mood-sad {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+body.mood-angry {
+  background: linear-gradient(135deg, #ff5858 0%, #f09819 100%);
+}
+body.mood-relaxed {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.todo-list {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+  width: 100%;
+}
+.todo-list.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.todo-item {
+  background: #f1f2f6;
+  border-radius: 10px;
+  padding: 0.85em 1.2em;
+  font-size: 1.12rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 95%;
+  max-width: 320px;
+  animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+  margin: 0 auto;
+  text-align: left;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.1rem;
+  }
+  .mood-btn {
+    font-size: 1.5rem;
+    padding: 0.2em 0.2em;
+  }
+} 
